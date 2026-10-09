@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SMP Negeri 1 Cimanggu — sekolah menengah pertama negeri di Kecamatan Cimanggu, Kabupaten Cilacap. Beriman, berprestasi, berkarya, dan peduli lingkungan.">
+  <meta name="keywords" content="SMP Negeri 1 Cimanggu, SMP Cimanggu, Cilacap, sekolah Cimanggu">
+  <title>SMP Negeri 1 Cimanggu — Beriman, Berprestasi, Peduli Lingkungan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,640&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://www.smpn1cimanggu.sch.id/images/logo.png">
+  <style>
+    :root {
+      --red: #b42334;
+      --red-deep: #7c1222;
+      --green: #1c6b43;
+      --green-deep: #0f3d28;
+      --leaf: #2f8a58;
+      --gold: #c9962a;
+      --ink: #1c1917;
+      --muted: #5c564e;
+      --line: rgba(28, 25, 23, 0.1);
+      --cream: #f7f3ec;
+      --paper: #fffdf9;
+      --shadow: 0 18px 50px rgba(28, 25, 23, 0.08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Outfit", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 100% -10%, rgba(180, 35, 52, 0.08), transparent 60%),
+        radial-gradient(700px 380px at -10% 20%, rgba(28, 107, 67, 0.08), transparent 55%),
+        var(--cream);
+      line-height: 1.65;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      background: var(--green-deep);
+      color: #f4efe6;
+      font-size: 0.86rem;
+    }
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+    .topbar span { opacity: 0.92; }
+
+    header.nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(247, 243, 236, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 82px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.12));
+    }
+    .brand strong {
+      display: block;
+      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+    }
+    .brand small { color: var(--muted); font-size: 0.78rem; }
+    nav.menu { display: flex; gap: 6px; align-items: center; }
+    nav.menu a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      color: #3b342c;
+    }
+    nav.menu a:hover { background: rgba(180, 35, 52, 0.08); color: var(--red-deep); }
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      display: grid;
+      align-items: end;
+      color: white;
+      overflow: hidden;
+    }
+    .hero img.bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 28, 22, 0.18) 0%, rgba(15, 28, 22, 0.28) 40%, rgba(12, 22, 18, 0.82) 100%),
+        linear-gradient(90deg, rgba(124, 18, 34, 0.28), transparent 46%);
+    }
+    .hero .wrap { position: relative; z-index: 1; padding: 80px 0 54px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 6px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      margin-bottom: 16px;
+    }
+    h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 640; letter-spacing: -0.02em; line-height: 1.12; margin: 0; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 5.2rem); max-width: 12ch; }
+    .hero p.lead { max-width: 58ch; font-size: 1.08rem; color: rgba(255,255,255,0.9); margin: 16px 0 26px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--gold); color: #2a1d05; }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.28); }
+    .btn-solid { background: var(--red); color: white; }
+    .btn-solid:hover { background: var(--red-deep); }
+    .btn-outline { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .stat {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      padding: 14px 16px;
+      backdrop-filter: blur(8px);
+    }
+    .stat b { display: block; font-family: "Fraunces", serif; font-size: 1.7rem; }
+    .stat span { font-size: 0.84rem; color: rgba(255,255,255,0.82); }
+
+    section { padding: 84px 0; }
+    .kicker {
+      color: var(--red);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .section-head { max-width: 680px; margin-bottom: 28px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    .section-head p { color: var(--muted); margin: 10px 0 0; }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+    .welcome {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+      overflow: hidden;
+    }
+    .welcome .photo { min-height: 420px; position: relative; }
+    .welcome .photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .welcome .copy { padding: 42px 40px; }
+    .quote {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border-left: 4px solid var(--gold);
+      background: #fbf6ea;
+      border-radius: 0 16px 16px 0;
+      font-family: "Fraunces", serif;
+      font-size: 1.18rem;
+    }
+    .sign { margin-top: 18px; color: var(--muted); }
+    .sign strong { color: var(--ink); display: block; }
+
+    .grid-2 { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 22px; }
+    .visi {
+      background: linear-gradient(165deg, var(--red-deep), #9d2436 55%, #c4513a);
+      color: white;
+      padding: 36px;
+      border-radius: 28px;
+      min-height: 100%;
+    }
+    .visi h3 { font-size: 2rem; margin: 10px 0 14px; }
+    .misi { display: grid; gap: 12px; }
+    .misi article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 16px 16px 18px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .num {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #eef6f1; color: var(--green-deep); font-weight: 700;
+    }
+
+    .timeline { display: grid; gap: 14px; }
+    .tl {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    .tl b { color: var(--green); font-family: "Fraunces", serif; font-size: 1.25rem; }
+
+    .cards { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 18px; }
+    .news, .side {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .news img { height: 250px; width: 100%; object-fit: cover; }
+    .news .body, .side { padding: 22px; }
+    .tag {
+      display: inline-block;
+      background: #f4e7ea;
+      color: var(--red-deep);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .facts { display: grid; gap: 10px; margin-top: 12px; }
+    .facts div {
+      display: flex; justify-content: space-between; gap: 12px;
+      border-bottom: 1px dashed var(--line); padding-bottom: 8px; font-size: 0.95rem;
+    }
+    .facts span { color: var(--muted); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 14px;
+    }
+    .gallery figure {
+      margin: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      background: #ddd;
+    }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; min-height: 240px; }
+    .gallery figcaption {
+      position: absolute; left: 14px; bottom: 14px;
+      background: rgba(18, 18, 18, 0.62);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .contact .panel { padding: 28px; }
+    .contact a.rowlink {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact a.rowlink:hover { color: var(--red); }
+    iframe { width: 100%; height: 320px; border: 0; border-radius: 20px; }
+
+    footer {
+      background: #14261d;
+      color: #e7efe9;
+      padding: 42px 0 22px;
+    }
+    footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; }
+    footer a { color: #d7e6dc; }
+    footer h3 { color: white; font-family: "Outfit", sans-serif; font-size: 1rem; letter-spacing: 0.04em; }
+    .copy { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 28px; padding-top: 16px; font-size: 0.86rem; color: #b7c7bd; }
+
+    @media (max-width: 900px) {
+      .menu-btn { display: inline-flex; }
+      nav.menu {
+        display: none;
+        position: absolute;
+        top: 82px; left: 0; right: 0;
+        background: var(--paper);
+        flex-direction: column;
+        padding: 12px 20px 18px;
+        border-bottom: 1px solid var(--line);
+      }
+      nav.menu.open { display: flex; }
+      .stats, .welcome, .grid-2, .cards, .gallery, .contact, footer .wrap, .tl {
+        grid-template-columns: 1fr;
+      }
+      .welcome .photo { min-height: 240px; position: relative; }
+      .welcome .photo img { position: static; height: 240px; }
+      .hero { min-height: 92vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span>Jalan Cilempuyang No. 198, Cilempuyang, Kec. Cimanggu, Kab. Cilacap 53256</span>
+      <span>smpn1cimanggu@gmail.com · (0280) 6261007</span>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#beranda">
+        <img src="https://www.smpn1cimanggu.sch.id/images/logo.png" alt="Logo SMP Negeri 1 Cimanggu">
+        <div>
+          <strong>SMP NEGERI 1 CIMANGGU</strong>
+          <small>Cilacap · NPSN 20300575</small>
+        </div>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu">Menu</button>
+      <nav class="menu" id="menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#sambutan">Sambutan</a>
+        <a href="#visi">Visi & Misi</a>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="beranda">
+    <section class="hero">
+      <img class="bg" src="https://www.smpn1cimanggu.sch.id/images/banner.jpg" alt="Gedung SMP Negeri 1 Cimanggu">
+      <div class="wrap">
+        <div class="eyebrow">Sekolah Menengah Pertama Negeri · sejak 1979</div>
+        <h1>Beriman, berprestasi, peduli lingkungan.</h1>
+        <p class="lead">SMP Negeri 1 Cimanggu adalah sekolah negeri di Kecamatan Cimanggu, Kabupaten Cilacap, yang menempuh pendidikan selama tiga tahun dengan semangat gotong royong, prestasi, dan wawasan budaya lingkungan.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#visi">Lihat visi sekolah</a>
+          <a class="btn btn-ghost" href="#kontak">Hubungi kami</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>765</b><span>Peserta didik</span></div>
+          <div class="stat"><b>40</b><span>Guru</span></div>
+          <div class="stat"><b>11</b><span>Tenaga kependidikan</span></div>
+          <div class="stat"><b>1979</b><span>Tahun berdiri resmi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sambutan">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Sambutan</div>
+          <h2>Pintu gerbang informasi sekolah.</h2>
+        </div>
+        <div class="panel welcome">
+          <div class="photo">
+            <img src="https://www.smpn1cimanggu.sch.id/images/banner.jpg" alt="Halaman depan sekolah">
+          </div>
+          <div class="copy">
+            <p>Assalamualaikum warahmatullahi wabarakatuh.</p>
+            <p>Puji syukur kepada Allah SWT atas rahmat dan anugerah-Nya sehingga website SMP Negeri 1 Cimanggu dapat hadir. Selamat datang di halaman resmi Sekolah Menengah Pertama Negeri 1 Cimanggu.</p>
+            <p>Di era digital, website sekolah menjadi pintu informasi bagi guru, karyawan, peserta didik, orang tua, alumni, dan masyarakat. Melalui laman ini, profil, kegiatan, fasilitas, dan perkembangan sekolah dapat diakses dengan lebih mudah.</p>
+            <div class="quote">“Semoga Allah SWT memberikan kekuatan bagi kita semua untuk mencerdaskan anak-anak bangsa.”</div>
+            <p>Masukan dari berbagai pihak sangat kami harapkan agar tampilan dan isi website terus berkembang menjadi sarana interaksi yang baik.</p>
+            <p>Wassalamualaikum warahmatullahi wabarakatuh.</p>
+            <div class="sign">
+              <strong>Dra. Marsilah</strong>
+              Kepala SMP Negeri 1 Cimanggu
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visi">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Arah sekolah</div>
+          <h2>Visi yang dijalankan lewat tujuh misi.</h2>
+          <p>Tagline warga sekolah: beriman, berprestasi, berkarya, serta peduli lingkungan.</p>
+        </div>
+        <div class="grid-2">
+          <div class="visi">
+            <div class="kicker" style="color:#f3d27a">Visi</div>
+            <h3>Terwujudnya lulusan yang beriman dan bertakwa, berprestasi, terampil, mandiri, dan berwawasan budaya lingkungan.</h3>
+            <p>Sekolah favorit di Kecamatan Cimanggu, tumbuh dari ruang kelas sederhana menjadi lembaga yang mencetak prestasi dari tingkat kecamatan hingga nasional.</p>
+          </div>
+          <div class="misi">
+            <article><div class="num">1</div><p>Meningkatkan keimanan dan ketakwaan kepada Tuhan Yang Maha Esa melalui pembelajaran berkesadaran spiritual, kegiatan keagamaan, dan pembiasaan karakter religius.</p></article>
+            <article><div class="num">2</div><p>Membentuk akhlak mulia: jujur, disiplin, santun, tanggung jawab, dan peduli sesama melalui pembelajaran yang bermakna.</p></article>
+            <article><div class="num">3</div><p>Meningkatkan prestasi akademik dan nonakademik berbasis literasi, numerasi, riset sederhana, seni, olahraga, dan teknologi.</p></article>
+            <article><div class="num">4</div><p>Membangun budaya gotong royong antara murid, guru, orang tua, dan masyarakat.</p></article>
+            <article><div class="num">5</div><p>Melatih kemandirian murid dalam belajar, mengambil keputusan, dan mengelola potensi diri.</p></article>
+            <article><div class="num">6</div><p>Mengembangkan keterampilan abad ke-21: berpikir kritis, kreatif, kolaboratif, dan komunikatif.</p></article>
+            <article><div class="num">7</div><p>Mengintegrasikan wawasan budaya lingkungan, kearifan lokal, konservasi, dan perilaku ramah lingkungan.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sejarah">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Jejak sekolah</div>
+          <h2>Dari bilik bambu menjadi sekolah negeri.</h2>
+          <p>Berdiri atas perjuangan pemerintah kecamatan, Desa Cilempuyang, dan para pendidik.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl"><b>1977</b><p>Tahap persiapan. Lokasi awal berdekatan dengan SD Cilempuyang 01 dan Puskesmas Cilempuyang. Kelas masih berbilik bambu, berlantai tanah, tiga rombongan belajar, pagi dan siang.</p></div>
+          <div class="tl"><b>1979</b><p>Resmi berdiri lewat SK Pendirian dan Izin Operasional 030/U/1979 tanggal 17 Februari 1979, setelah peleburan ST 03 Cilacap. Alamat di Jalan Raya Cilempuyang No. 198.</p></div>
+          <div class="tl"><b>1993</b><p>Nama berubah dari SMP Negeri Cimanggu menjadi SMP Negeri 1 Cimanggu, bersamaan dengan berdirinya SMP Negeri 2 Cimanggu.</p></div>
+          <div class="tl"><b>Kini</b><p>Sekolah negeri milik pemerintah daerah dengan prestasi akademik dan nonakademik hingga tingkat nasional. Alumni berkiprah di pemerintahan, TNI, Polri, dunia usaha, kesehatan, dan berbagai bidang lain.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeri">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Kabar & wajah sekolah</div>
+          <h2>Galeri dan berita terbaru.</h2>
+        </div>
+        <div class="cards">
+          <article class="news">
+            <img src="https://www.smpn1cimanggu.sch.id/storage/blog_image/CT8YdzzbG1KQvl29intAJRqZo9WNQWIrbgrdARMQ.jpg" alt="Gambar berita Maklumat Pelayanan">
+            <div class="body">
+              <span class="tag">Kegiatan · 21 Agustus 2026</span>
+              <h3 style="margin:12px 0 8px; font-size:1.8rem;">Maklumat Pelayanan</h3>
+              <p style="color:var(--muted)">Informasi layanan terbaru dari SMP Negeri 1 Cimanggu. Baca selengkapnya di laman berita resmi sekolah.</p>
+              <a class="btn btn-solid" href="https://www.smpn1cimanggu.sch.id/berita/maklumat-pelayanan" target="_blank" rel="noopener">Baca berita</a>
+            </div>
+          </article>
+          <aside class="side">
+            <h3>Identitas sekolah</h3>
+            <div class="facts">
+              <div><span>NPSN</span><b>20300575</b></div>
+              <div><span>Status</span><b>Negeri</b></div>
+              <div><span>Bentuk</span><b>SMP</b></div>
+              <div><span>Kepemilikan</span><b>Pemerintah daerah</b></div>
+              <div><span>SK pendirian</span><b>030/U/1979</b></div>
+              <div><span>Kepala sekolah</span><b>Dra. Marsilah</b></div>
+            </div>
+            <p style="margin-top:18px"><a class="btn btn-outline" href="https://www.smpn1cimanggu.sch.id/galeri" target="_blank" rel="noopener">Lihat semua foto</a></p>
+          </aside>
+        </div>
+        <div class="gallery" style="margin-top:18px">
+          <figure>
+            <img src="https://www.smpn1cimanggu.sch.id/images/banner.jpg" alt="Gedung utama sekolah">
+            <figcaption>Gedung utama</figcaption>
+          </figure>
+          <figure>
+            <img src="https://www.smpn1cimanggu.sch.id/storage/image_gallery/geAzIVveT2QkuA0vtf9VZKXAyFsocAF5On8Np2oZ.jpg" alt="Foto guru">
+            <figcaption>Guru</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Kontak</div>
+          <h2>Silakan berkunjung atau menghubungi sekolah.</h2>
+        </div>
+        <div class="contact">
+          <div class="panel">
+            <h3>SMP Negeri 1 Cimanggu</h3>
+            <a class="rowlink" href="https://maps.google.com/?q=SMP+Negeri+1+Cimanggu+Cilacap" target="_blank" rel="noopener">Jalan Cilempuyang No. 198, Cilempuyang, Kec. Cimanggu, Kab. Cilacap 53256</a>
+            <a class="rowlink" href="mailto:smpn1cimanggu@gmail.com">smpn1cimanggu@gmail.com</a>
+            <a class="rowlink" href="tel:02806261007">(0280) 6261007</a>
+            <p style="color:var(--muted)">Tautan dinas: <a href="https://pdk.cilacapkab.go.id/" target="_blank" rel="noopener">Disdikbud Cilacap</a> · <a href="https://cilacap.siap-ppdb.com/#/" target="_blank" rel="noopener">PPDB Cilacap</a></p>
+          </div>
+          <iframe title="Peta SMP Negeri 1 Cimanggu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=SMP%20Negeri%201%20Cimanggu%20Cilacap&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <h3>SMP NEGERI 1 CIMANGGU</h3>
+        <p>Lembaga pendidikan menengah pertama di Kabupaten Cilacap, Jawa Tengah, dengan program pendidikan tiga tahun.</p>
+      </div>
+      <div>
+        <h3>Tautan</h3>
+        <p><a href="https://www.smpn1cimanggu.sch.id/berita" target="_blank" rel="noopener">Berita</a></p>
+        <p><a href="https://www.smpn1cimanggu.sch.id/galeri" target="_blank" rel="noopener">Galeri</a></p>
+        <p><a href="https://www.smpn1cimanggu.sch.id/pelayanan" target="_blank" rel="noopener">Layanan</a></p>
+      </div>
+      <div>
+        <h3>Jam informasi</h3>
+        <p>Senin–Jumat, mengikuti kalender pendidikan sekolah.</p>
+        <p>Email dan telepon tercantum di bagian atas halaman.</p>
+      </div>
+    </div>
+    <div class="wrap copy">© <span id="year"></span> SMP Negeri 1 Cimanggu. Desain ulang halaman depan untuk tampilan yang lebih rapi.</div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("menuBtn").addEventListener("click", function () {
+      document.getElementById("menu").classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
